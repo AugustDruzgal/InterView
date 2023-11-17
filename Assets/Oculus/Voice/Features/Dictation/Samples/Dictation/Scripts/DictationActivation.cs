@@ -18,16 +18,18 @@ namespace Meta.Voice.Samples.Dictation
         [FormerlySerializedAs("dictation")]
         [SerializeField] private TMP_Text button;
         [SerializeField] private DictationService _dictation;
+        
+
         private bool first = true;
         private static bool messageReady = false;
-
+        private bool isActive;
         public void ToggleActivation()
         {
-            if (first)
-            {
-                first = false;
-                return;
-            }
+            //if (first)
+            //{
+            //    first = false;
+            //    return;
+            //}
 
             if (_dictation.MicActive )
             {

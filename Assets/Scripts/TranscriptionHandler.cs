@@ -23,7 +23,7 @@ namespace Meta.WitAi.Dictation
 
         private static StringBuilder _text;
         private string _activeText;
-        private bool _newSection;
+        private int _startIndex;    
 
         private StringBuilder _separator;
 
@@ -70,7 +70,7 @@ namespace Meta.WitAi.Dictation
         private void OnFullTranscription(string text)
         {
             _activeText = string.Empty;
-
+            print("----This is full transcription: " + text);
             if (_text.Length > 0)
             {
                 _text.Append(_separator);
@@ -84,6 +84,7 @@ namespace Meta.WitAi.Dictation
         private void OnPartialTranscription(string text)
         {
             _activeText = text;
+            print("+++This is partial transcription: " + text);
             OnTranscriptionUpdated();
         }
 
@@ -110,6 +111,7 @@ namespace Meta.WitAi.Dictation
                     transcription.Append(_activeText);
                 }
             }
+            print("*****This is on update transcription: " + transcription.ToString());
             onTranscriptionUpdated.Invoke(transcription.ToString());
             
         }
