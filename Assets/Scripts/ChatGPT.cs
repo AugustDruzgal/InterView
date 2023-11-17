@@ -126,7 +126,6 @@ namespace OpenAI
         }
         public void ResponseAfterUserInput()
         {
-            print("WE GOT HERE");
             _userInput = userInput.text;
             m_MyEvent.Invoke();
             userInput.text = "Enter text...";
